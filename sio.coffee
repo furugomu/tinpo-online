@@ -11,8 +11,16 @@ match = ->
 choice = (a) ->
   a[Math.floor(Math.random() * a.length)]
 
+nusers = 0
+
 module.exports = (io) ->
   io.sockets.on 'connection', (socket) ->
+    # ninzu-
+    nusers += 1
+    io.sockets.emit 'user count', nusers
+    socket.on 'disconnect', ->
+      socket.broadcast.emit 'user count', --nusers
+
     char = choice(answer)
     socket.emit 'set character', char
     socket.emit 'set string', characters.join('')

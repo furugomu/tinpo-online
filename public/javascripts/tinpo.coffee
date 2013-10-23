@@ -15,6 +15,9 @@ socket.on 'win', ->
     '<p>'+string.textContent.length+'回目で果てました...</p>'
   string.textContent = ''
 
+socket.on 'user count', (n) ->
+  document.getElementById('user-count').textContent = n
+
 button.addEventListener 'click', (e)->
   socket.emit 'add'
 ,false

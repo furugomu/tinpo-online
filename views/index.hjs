@@ -8,7 +8,8 @@
   <script src=/socket.io/socket.io.js></script>
  </head>
  <body>
-  <p class=buttons><button id=button>■</button>
+  <p class=buttons><button id=button>■</button></p>
+  <p>現在 <span id=user-count>0</span> 人います。</p>
   <div id=result></div>
   <p id=string></p>
 
